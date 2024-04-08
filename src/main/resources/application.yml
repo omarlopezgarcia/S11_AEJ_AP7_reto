@@ -1,0 +1,11 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: CognitiveServices
+  r2dbc:
+    #url: r2dbc:postgresql://localhost:5432/content_moderator
+    url: r2dbc:pool:postgres://isabelle.db.elephantsql.com:5432/dxddxrgh
+    username: dxddxrgh
+    password: FeoVTSfMw-C41XFCcBcRfMYBHkM1GFel

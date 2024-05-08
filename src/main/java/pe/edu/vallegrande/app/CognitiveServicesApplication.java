@@ -1,4 +1,4 @@
-package com.vg.cognitiveservices;
+package pe.edu.vallegrande.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

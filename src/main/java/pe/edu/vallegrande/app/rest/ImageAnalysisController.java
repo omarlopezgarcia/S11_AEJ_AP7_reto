@@ -1,13 +1,15 @@
-package com.vg.cognitiveservices.controller;
+package pe.edu.vallegrande.app.rest;
 
-import com.vg.cognitiveservices.dto.ImageAnalysisDTO;
-import com.vg.cognitiveservices.model.ComputerVisionResponse;
-import com.vg.cognitiveservices.service.ComputerVisionService;
+import pe.edu.vallegrande.app.dto.ImageAnalysisDTO;
+import pe.edu.vallegrande.app.model.ComputerVisionResponse;
+import pe.edu.vallegrande.app.service.ComputerVisionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4321")
 @RequestMapping("/api/images")
 public class ImageAnalysisController {
 
@@ -16,6 +18,11 @@ public class ImageAnalysisController {
 
     @PostMapping("/analyze")
     public Mono<ComputerVisionResponse> analyzeImage(@RequestBody ImageAnalysisDTO request) {
+
         return visionService.save(request.getImageUrl());
+    }
+    @GetMapping
+    public Flux<ComputerVisionResponse> getAll(){
+        return visionService.getAll();
     }
 }

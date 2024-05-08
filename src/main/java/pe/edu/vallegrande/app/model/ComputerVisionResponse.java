@@ -1,4 +1,4 @@
-package com.vg.cognitiveservices.model;
+package pe.edu.vallegrande.app.model;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;

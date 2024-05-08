@@ -1,13 +1,14 @@
-package com.vg.cognitiveservices.service.impl;
+package pe.edu.vallegrande.app.service.impl;
 
-import com.vg.cognitiveservices.model.ComputerVisionResponse;
-import com.vg.cognitiveservices.repository.ComputerVisionResponseRepository;
-import com.vg.cognitiveservices.service.ComputerVisionService;
+import pe.edu.vallegrande.app.model.ComputerVisionResponse;
+import pe.edu.vallegrande.app.repository.ComputerVisionResponseRepository;
+import pe.edu.vallegrande.app.service.ComputerVisionService;
 import okhttp3.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.io.IOException;
@@ -66,6 +67,11 @@ public class ComputerVisionServiceImpl implements ComputerVisionService {
         } catch (IOException e) {
             throw new RuntimeException("Error en la solicitud HTTP", e);
         }
+    }
+
+    @Override
+    public Flux<ComputerVisionResponse> getAll() {
+        return responseRepository.getAll();
     }
 
 }

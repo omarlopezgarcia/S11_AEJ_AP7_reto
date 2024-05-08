@@ -1,11 +1,17 @@
 server:
-  port: 9090
+  port: ${PORT}
 
 spring:
   application:
     name: CognitiveServices
   r2dbc:
-    url: r2dbc:postgresql://roundhouse.proxy.rlwy.net:16725/railway
-    username: postgres
-    password: pbjHWeAQiqEiqUvxBSNKChiSQFWmwURU
+    url: ${URL_DB}/${NAME_DB}
+    username: ${USER_DB}
+    password: ${PASSWORD_DB}
 
+management:
+  endpoint:
+    health:
+      show-details: always
+      details:
+        enabled: true

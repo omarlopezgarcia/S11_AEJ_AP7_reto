@@ -1,4 +1,4 @@
-package com.vg.cognitiveservices.dto;
+package pe.edu.vallegrande.app.dto;
 
 import lombok.Data;
 

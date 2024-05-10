@@ -2,12 +2,20 @@ server:
   port: ${PORT}
 
 spring:
+  codec:
+    max-in-memory-size: 10MB
   application:
     name: CognitiveServices
+  webflux:
+    base-path: ${CONTEXT_PATH}
   r2dbc:
     url: ${URL_DB}/${NAME_DB}
     username: ${USER_DB}
     password: ${PASSWORD_DB}
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
 
 management:
   endpoint:

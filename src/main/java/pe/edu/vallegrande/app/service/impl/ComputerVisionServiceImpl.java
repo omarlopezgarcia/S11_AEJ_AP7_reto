@@ -1,7 +1,7 @@
 package pe.edu.vallegrande.app.service.impl;
 
 import pe.edu.vallegrande.app.model.ComputerVisionResponse;
-import pe.edu.vallegrande.app.repository.ComputerVisionResponseRepository;
+import pe.edu.vallegrande.app.repository.ComputerVisionRepository;
 import pe.edu.vallegrande.app.service.ComputerVisionService;
 import okhttp3.*;
 import org.json.JSONArray;
@@ -16,13 +16,16 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import static pe.edu.vallegrande.app.util.Constant.COMPUTER_VISION_KEY;
+import static pe.edu.vallegrande.app.util.Constant.COMPUTER_VISION_URL;
+
 @Service
 public class ComputerVisionServiceImpl implements ComputerVisionService {
 
-    private final ComputerVisionResponseRepository responseRepository;
+    private final ComputerVisionRepository responseRepository;
 
     @Autowired
-    public ComputerVisionServiceImpl(ComputerVisionResponseRepository responseRepository) {
+    public ComputerVisionServiceImpl(ComputerVisionRepository responseRepository) {
         this.responseRepository = responseRepository;
     }
 
@@ -33,9 +36,9 @@ public class ComputerVisionServiceImpl implements ComputerVisionService {
             MediaType mediaType = MediaType.parse("application/json");
             RequestBody body = RequestBody.create(mediaType, "{\n  \"url\": \"" + imageUrl + "\"\n}\n");
             Request request = new Request.Builder()
-                    .url("https://trilary-computer-vision.cognitiveservices.azure.com/vision/v3.2/analyze?visualFeatures=Categories%2CDescription%2CColor%2CAdult%2CFaces%2CBrands%2CImageType")
+                    .url(COMPUTER_VISION_URL)
                     .method("POST", body)
-                    .addHeader("Ocp-Apim-Subscription-Key", "b8434bc8abf5416bbc99984979915d7d")
+                    .addHeader("Ocp-Apim-Subscription-Key", COMPUTER_VISION_KEY)
                     .addHeader("Content-Type", "application/json")
                     .build();
 

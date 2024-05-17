@@ -10,19 +10,20 @@ import reactor.core.publisher.Mono;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/analyze")
-public class ImageAnalysisControllerRest {
+@RequestMapping("/computer-vision")
+public class ComputerVisionRest {
 
     @Autowired
     private ComputerVisionService visionService;
 
-    @PostMapping("/image")
+    @PostMapping("/analyze/image")
     public Mono<ComputerVisionResponse> analyzeImage(@RequestBody ComputerVisionImageAnalysisDTO request) {
 
         return visionService.save(request.getImageUrl());
     }
+
     @GetMapping
-    public Flux<ComputerVisionResponse> getAll(){
+    public Flux<ComputerVisionResponse> getAll() {
         return visionService.getAll();
     }
 }

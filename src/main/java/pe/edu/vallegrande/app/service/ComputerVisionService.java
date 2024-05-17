@@ -6,6 +6,7 @@ import reactor.core.publisher.Mono;
 
 public interface ComputerVisionService {
     Mono<ComputerVisionResponse> save(String imageUrl);
+
     Flux<ComputerVisionResponse> getAll();
 
 }

@@ -1,17 +1,18 @@
 server:
-  port: ${PORT}
+  port: 9090
+  servlet:
+    context-path: /api/v1
 
 spring:
   codec:
     max-in-memory-size: 10MB
   application:
     name: CognitiveServices
-  webflux:
-    base-path: ${CONTEXT_PATH}
+
   r2dbc:
-    url: ${URL_DB}/${NAME_DB}
-    username: ${USER_DB}
-    password: ${PASSWORD_DB}
+    url: r2dbc:postgresql://roundhouse.proxy.rlwy.net:16725/railway
+    username: postgres
+    password: pbjHWeAQiqEiqUvxBSNKChiSQFWmwURU
   servlet:
     multipart:
       max-file-size: 10MB
@@ -21,5 +22,3 @@ management:
   endpoint:
     health:
       show-details: always
-      details:
-        enabled: true

@@ -11,10 +11,10 @@ import java.util.Arrays;
 @Configuration
 public class CorsConfig {
     @Bean
-    CorsConfigurationSource configurationSource(){
+    CorsConfigurationSource configurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOrigins(Arrays.asList("*"));
-        configuration.setAllowedMethods(Arrays.asList("POST","GET","PUT","DELETE","PATCH", "OPTIONS"));
+        configuration.setAllowedMethods(Arrays.asList("POST", "GET", "PUT", "DELETE", "PATCH", "OPTIONS"));
         configuration.setAllowedHeaders(Arrays.asList("*"));
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();

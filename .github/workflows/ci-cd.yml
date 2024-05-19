@@ -45,6 +45,15 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: 17
+          distribution: 'zulu'
+
+      - name: Package with Maven
+        run: mvn -B package
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
 
@@ -62,4 +71,4 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            michaeljc23/s11_ap7_reto:latest 
+            michaeljc23/s11_ap7_reto:latest

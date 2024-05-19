@@ -22,3 +22,8 @@ management:
   endpoint:
     health:
       show-details: always
+
+api:
+  computerVisionKey: b8434bc8abf5416bbc99984979915d7d
+  geminiApiKey: AIzaSyDlYL4_We2fa3ocDnRkq46zLQ0uLac-guA
+  imgbbApiKey: 48f0b98d6405f53cc1a50fbd37f63d46
